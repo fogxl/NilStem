@@ -3,25 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title>NIL-STEM</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block head %}{% endblock %}
   </head>
   <body>
     <!-- Header -->
     <header>
       <nav class="navbar">
-  <div class="nav-logo">
-    <img src="{{ url_for('static', filename='logo.png') }}" alt="NilStem logo">
-  </div>
-  <div class="nav-links">
-    <a href="{{ url_for('about') }}">About</a>
-    <a href="#">Events</a>
-    <a href="#">Mentors</a>
-  </div>
-  <div class="nav-action">
-    <a href="#contact" class="contact-btn">Contact Us</a>
-  </div>
-</nav>
-    </header>
+        <div class="nav-logo">
+          <img src="{{ url_for('static', filename='images/officialnilstemlogo.png') }}" alt="NilStem logo">
+        </div>
+      <div class="nav-links">
+        <a href="{{ url_for('about') }}" class="active">About</a>
+        <a href="#">Events</a>
+        <a href="#">Mentors</a>
+        <a href="#">Our People</a>
+        <span id="indicator" aria-hidden="true"></span>
+      </div>
+      <div class="nav-action">
+        <a href="#contact" class="contact-btn">Contact Us</a>
+      </div>
+    </nav>
+  </header>
 
     <!-- Main content area -->
     <main>
@@ -34,5 +37,32 @@
       <p>Email: <a href="mailto:nilstem22@gmail.com">nilstem22@gmail.com</a></p>
       <p>© 2025 NILStem</p>
     </footer>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav-links");
+  const links = nav.querySelectorAll("a");
+  const indicator = document.getElementById("indicator");
+
+  function setIndicator(el) {
+    const rect = el.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    indicator.style.width = rect.width + "px";
+    indicator.style.left = (rect.left - navRect.left) + "px";
+  }
+
+  // Default: active link or first link
+  const active = nav.querySelector("a.active") || links[0];
+  setIndicator(active);
+
+  links.forEach(link => {
+    link.addEventListener("mouseenter", () => setIndicator(link));
+    link.addEventListener("click", () => setIndicator(link));
+  });
+
+  nav.addEventListener("mouseleave", () => setIndicator(active));
+  window.addEventListener("resize", () => setIndicator(active));
+});
+</script>
   </body>
 </html>

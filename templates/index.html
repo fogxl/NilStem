@@ -1,5 +1,43 @@
 {% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
 {% block content %}
   <h1>NIL-STEM!</h1>
   <p>Network, Interact, Learn Stem.</p>
+  <div class="index-hero">
+    <nav class="orbital-menu">
+      <ul class="orbital-menu__list">
+        <li class="orbital-menu__item">
+          <a href="{{ url_for('about') }}" class="orbital-menu__link">
+            <span class="orbital-menu__link-icon"><i data-feather="log-out"></i></span>
+            <span class="orbital-menu__link-text">About</span>
+          </a>
+        </li>
+        <li class="orbital-menu__item">
+          <a href="{{ url_for('events') }}" class="orbital-menu__link">
+            <span class="orbital-menu__link-icon"><i data-feather="log-out"></i></span>
+            <span class="orbital-menu__link-text">Events</span>
+          </a>
+        </li>
+        <li class="orbital-menu__item">
+          <a href="{{ url_for('mentors') }}" class="orbital-menu__link">
+            <span class="orbital-menu__link-icon"><i data-feather="log-out"></i></span>
+            <span class="orbital-menu__link-text">Mentors</span>
+          </a>
+        </li>
+        <li class="orbital-menu__item">
+          <a href="{{ url_for('people') }}" class="orbital-menu__link">
+            <span class="orbital-menu__link-icon"><i data-feather="log-out"></i></span>
+            <span class="orbital-menu__link-text">Our People</span>
+          </a>
+        </li>
+      </ul>
+      <div class="orbital-menu__center-pic">
+        <img src="{{ url_for('static', filename='images/officialnilstemlogo.png') }}" alt="NilStem logo">
+      </div>
+    </nav>
+  </div>
+      
 {% endblock %}

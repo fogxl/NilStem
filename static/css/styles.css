@@ -1,0 +1,162 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Header + footer */
+header, footer {
+  background: white;
+  color: #1e3a8a;
+  padding: 10px;
+  text-align: center;
+  border-top: 2px solid #2563eb;
+  border-bottom: 1px solid #2563eb;
+}
+
+/* Navbar wrapper */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 35px;
+  background: white;
+  border-top: 2px solid #2563eb;   /* top blue line */
+  border-bottom: 1px solid #2563eb; /* bottom blue line */
+}
+
+/* Logo */
+.navbar img {
+  height: 40px;
+}
+
+/* Center links: grid so indicator math is stable */
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* center the group */
+  align-items: center;
+  gap: 10px;               /* requested spacing between items */
+  margin: 0 auto;
+  position: relative;      /* for #indicator positioning */
+  padding-bottom: 10px;     /* room for underline */
+  background: #fff;
+}
+
+.nav-links a {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-decoration: none;
+  color: #1e3a8a;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 12px; /* slightly tighter for close spacing */
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover { color: #2563eb; }
+
+/* Right side (Contact Us button) */
+.nav-action { display: flex; align-items: center; }
+
+.contact-btn {
+  padding: 9px 20px;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  background: transparent;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-btn:hover { background: #2563eb; color: #fff; }
+
+/* === Simplified Navbar Underline (4 links, palette applied) === */
+.nav-links { 
+  position: relative; 
+  display: table;            /* equal-width cells, simple */
+  table-layout: fixed;       /* even distribution */
+  margin: 0 auto;            /* center within navbar */
+  width: 520px;              /* tweak as you like */
+}
+
+.nav-links a {
+  position: relative;
+  display: table-cell;
+  width: 25%;                /* 4 links */
+  text-align: center;
+  color: #1e3a8a;            /* navy */
+  text-decoration: none;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 12px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover { color: #081F5C; }
+
+/* Decorative dots (kept from original, scoped to navbar) */
+.nav-links a:before,
+.nav-links a:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s ease transform;
+}
+.nav-links a:before { top: 0; left: 10px; width: 6px; height: 6px; }
+.nav-links a:after  { top: 5px; left: 18px; width: 4px; height: 4px; }
+
+/* Dot colors using your palette */
+.nav-links a:nth-child(1):before { background-color: #334EAC; }
+.nav-links a:nth-child(1):after  { background-color: #BAD6EB; }
+.nav-links a:nth-child(2):before { background-color: #F7F2EB; }
+.nav-links a:nth-child(2):after  { background-color: #7096D1; }
+.nav-links a:nth-child(3):before { background-color: #081F5C; }
+.nav-links a:nth-child(3):after  { background-color: #D0E3FF; }
+.nav-links a:nth-child(4):before { background-color: #FFF9F0; }
+.nav-links a:nth-child(4):after  { background-color: #334EAC; }
+
+.nav-links a:hover:before,
+.nav-links a:hover:after { transform: scale(1); }
+
+/* Underline indicator */
+#indicator {
+  position: absolute;
+  left: 0%;
+  bottom: 0;
+  width: 25%;                 /* one cell wide */
+  height: 3px;
+  background: linear-gradient(130deg, #334EAC, #BAD6EB);
+  border-radius: 5px;
+  transition: 0.2s ease left, 0.2s ease background;
+}
+
+/* Hover positions & gradients (quarters) */
+.nav-links a:nth-child(1):hover ~ #indicator { 
+  left: 0%;  
+  background: linear-gradient(130deg, #334EAC, #BAD6EB); 
+}
+.nav-links a:nth-child(2):hover ~ #indicator { 
+  left: 25%; 
+  background: linear-gradient(130deg, #F7F2EB, #7096D1); 
+}
+.nav-links a:nth-child(3):hover ~ #indicator { 
+  left: 50%; 
+  background: linear-gradient(130deg, #081F5C, #D0E3FF); 
+}
+.nav-links a:nth-child(4):hover ~ #indicator { 
+  left: 75%; 
+  background: linear-gradient(130deg, #FFF9F0, #334EAC); 
+}
+
+/* Active positions (fallback when not hovering) */
+.nav-links a.active ~ #indicator { left: 0%; }
+.nav-links a:nth-child(2).active ~ #indicator { left: 25%; }
+.nav-links a:nth-child(3).active ~ #indicator { left: 50%; }
+.nav-links a:nth-child(4).active ~ #indicator { left: 75%; }
