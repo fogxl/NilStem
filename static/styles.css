@@ -16,3 +16,79 @@ nav a {
   margin: 0 10px;
   text-decoration: none;
 }
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* pushes left links & right button apart */
+  align-items: center;
+  padding: 10px 20px;
+  background: #222;
+}
+
+/* Left links */
+.nav-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Navbar wrapper */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  background: white;
+  border-top: 2px solid #2563eb;   /* top blue line */
+  border-bottom: 1px solid #2563eb; /* bottom blue line */
+}
+
+/* Left logo */
+.navbar img {
+  height: 40px; /* adjust logo size */
+}
+
+/* Center links */
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* Individual links */
+.nav-links a {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-decoration: none;
+  color: #1e3a8a;  /* navy blue */
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #2563eb; /* bright blue on hover */
+}
+
+/* Right side action (Contact Us) */
+.nav-action {
+  display: flex;
+  align-items: center;
+}
+
+.contact-btn {
+  padding: 6px 14px;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  background: transparent;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.contact-btn:hover {
+  background: #2563eb;
+  color: white;
+}
