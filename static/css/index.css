@@ -16,7 +16,16 @@ body{
 @keyframes scaling{ 0%{ transform:scale(1); } 50%{ transform:scale(1.2);} 100%{ transform:scale(1);} }
 
 /* Orbital menu base */
-.orbital-menu{ position:relative; }
+.orbital-menu{ 
+  position:relative; 
+  --orbit: clamp(150px, 20vw, 200px); /* controls orbit radius */
+  --center-offset-x: 0px;   /* manual nudge horizontally (+right / -left) */
+  --center-offset-y: 0px;   /* manual nudge vertically   (+down  / -up)   */
+  --angle-1: 0deg;
+  --angle-2: 90deg;
+  --angle-3: 180deg;
+  --angle-4: 270deg;
+}
 
 /* List (rotating ring) */
 .orbital-menu__list{
@@ -25,6 +34,8 @@ body{
   left:50%;
   animation:menu-rotation linear 60s infinite;
   transform: translate(-50%, -50%);
+  width:0;
+  height:0;
 }
 .orbital-menu__list:hover{ animation-play-state:paused; }
 .orbital-menu__list:hover .orbital-menu__link > *{ animation-play-state:paused; }
@@ -82,9 +93,38 @@ body{
 .orbital-menu__link:hover .orbital-menu__link-icon{ opacity:0; }
 
 /* Center picture */
-.orbital-menu__center-pic{ position:relative; width:18rem; height:18rem; overflow:hidden; border-radius:4rem; }
-.orbital-menu__center-pic > img{ position:absolute; inset:0; max-width:100%; transition:500ms ease all; }
-.orbital-menu__center-pic:hover > img:last-child{ opacity:0; }
+.orbital-menu__center-pic{ 
+  position:relative; 
+  width:22rem; 
+  height:22rem;               /* fixed to logo image box */
+  overflow:visible; 
+  border-radius:4rem; 
+  text-align: center;
+}
+.orbital-menu__center-pic > img{ 
+  position: static; 
+  display:block;
+  margin:0 auto; 
+  max-width:100%; 
+  height:auto; 
+  transition:500ms ease all; 
+}
+
+.orbital-menu__center-pic .orbital-menu__tagline{ 
+  position:absolute; 
+  top: calc(100% + 12px);      /* sit just below the image box */
+  left:50%;
+  transform: translateX(-50%);
+  line-height: 1.25; 
+  font-weight: 600; 
+  font-size: clamp(18px, 2.2vw, 26px);
+  text-wrap: balance;
+  margin:0;                     /* prevent extra flow spacing */
+}
+
+.orbital-menu__center-pic:hover > img:last-child{ 
+  opacity:0; 
+}
 
 .index-hero {
   min-height: 100vh;            /* take full viewport height */
@@ -93,4 +133,51 @@ body{
   align-items: center;          /* center horizontally */
   justify-content: center;      /* center vertically */
   text-align: center;
+}
+
+/* === Layout overrides for even spacing and proper tagline placement === */
+.orbital-menu{ 
+  --orbit: clamp(180px, 20vw, 280px);
+  display:grid;
+  place-items:center;
+}
+
+/* Position list items around the center */
+.orbital-menu__list{ 
+  position:absolute; 
+  top:50%; 
+  left:50%; 
+  transform: translate(calc(-50% + var(--center-offset-x)), calc(-50% + var(--center-offset-y)));
+  list-style:none; margin:0; padding:0; width:0; height:0;
+}
+
+.orbital-menu__item{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform-origin:center center;
+  animation:none; /* stop the initial appear layout trick */
+}
+.orbital-menu__item::marker{ content: none; }
+/* Four evenly spaced positions */
+.orbital-menu__item:nth-child(1){
+  transform: translate(-50%, -50%) rotate(var(--angle-1)) translate(var(--orbit)) rotate(calc(-1 * var(--angle-1)));
+}
+.orbital-menu__item:nth-child(2){
+  transform: translate(-50%, -50%) rotate(var(--angle-2)) translate(var(--orbit)) rotate(calc(-1 * var(--angle-2)));
+}
+.orbital-menu__item:nth-child(3){
+  transform: translate(-50%, -50%) rotate(var(--angle-3)) translate(var(--orbit)) rotate(calc(-1 * var(--angle-3)));
+}
+.orbital-menu__item:nth-child(4){
+  transform: translate(-50%, -50%) rotate(var(--angle-4)) translate(var(--orbit)) rotate(calc(-1 * var(--angle-4)));
+}
+
+/* Ensure orbiting elements are circular and centered */
+.orbital-menu__link{
+  display:grid;
+  place-items:center;
+  width: clamp(90px, 10vw, 140px);
+  height: clamp(90px, 10vw, 140px);
+  border-radius:50%;
 }
