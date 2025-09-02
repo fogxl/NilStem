@@ -3,8 +3,9 @@
 html{ font-size:62.5%; }
 html,body{ height:100%; }
 body{
-  font-size:16px;
-  font-family:'Roboto',sans-serif;
+  font-size:15px;
+  font-family:'Times New Roman', serif;
+  background: linear-gradient(180deg, #7096D1 0%, #a7c7e7 50%, #d0e3ff 100%);
 }
 
 /* Keyframes */
@@ -52,7 +53,7 @@ body{
 /* Expanded Sass @for (2..8) */
 .orbital-menu__item:nth-child(2){ animation-delay:0.1s; transform:rotate(45deg); }
 .orbital-menu__item:nth-child(2) .orbital-menu__link{ transform:rotate(-45deg); }
-.orbital-menu__item:nth-child(2) .orbital-menu__link:before{ background:#BAD6EB; animation-delay:0.33s; }
+.orbital-menu__item:nth-child(2) .orbital-menu__link:before{ background:white; animation-delay:0.33s; }
 
 .orbital-menu__item:nth-child(3){ animation-delay:0.2s; transform:rotate(90deg); }
 .orbital-menu__item:nth-child(3) .orbital-menu__link{ transform:rotate(-90deg); }
@@ -110,16 +111,19 @@ body{
   transition:500ms ease all; 
 }
 
-.orbital-menu__center-pic .orbital-menu__tagline{ 
-  position:absolute; 
-  top: calc(100% + 12px);      /* sit just below the image box */
-  left:50%;
+.orbital-menu__center-pic .orbital-menu__tagline{
+  position: absolute;
+  top: calc(100% + 4px);    /* move it closer under the logo */
+  left: 50%;
   transform: translateX(-50%);
-  line-height: 1.25; 
-  font-weight: 600; 
-  font-size: clamp(18px, 2.2vw, 26px);
+  max-width: 80rem;         /* constrains width so it wraps to ~2 lines */
+  line-height: 1.2;
+  font-weight: 400;
+  font-size: clamp(14px, 2vw, 24px);
+  text-align: center;
+  white-space: normal;
   text-wrap: balance;
-  margin:0;                     /* prevent extra flow spacing */
+  margin: 0;
 }
 
 .orbital-menu__center-pic:hover > img:last-child{ 

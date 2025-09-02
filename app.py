@@ -34,13 +34,13 @@ def mentors():
         return render_template('mentors.html', title='Mentors')
     except TemplateNotFound:
         return '<h1>Mentors</h1><p>Create templates/mentors.html to customize.</p>'
-
-@app.route('/people')
-def people():
+    
+@app.route('/contact')
+def contact():
     try:
-        return render_template('people.html', title='Our People')
+        return render_template('contact.html', title='Contact')
     except TemplateNotFound:
-        return '<h1>Our People</h1><p>Create templates/people.html to customize.</p>'
+        return '<h1>Contact</h1><p>Create templates/contact.html to customize.</p>'
 
 if __name__ == '__main__':
     app.run(debug=True)

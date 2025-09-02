@@ -11,13 +11,14 @@
     <header>
       <nav class="navbar">
         <div class="nav-logo">
-          <img src="{{ url_for('static', filename='images/officialnilstemlogo.png') }}" alt="NilStem logo">
+          <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='images/officialnilstemlogo.png') }}" alt="NilStem logo">
+          </a>
         </div>
       <div class="nav-links">
-        <a href="{{ url_for('about') }}" class="active">About</a>
-        <a href="#">Events</a>
-        <a href="#">Mentors</a>
-        <a href="#">Our People</a>
+        <a href="{{ url_for('about')   }}"   class="{{ 'active' if request.endpoint == 'about'   else '' }}">About</a>
+        <a href="{{ url_for('events')  }}"   class="{{ 'active' if request.endpoint == 'events'  else '' }}">Events</a>
+        <a href="{{ url_for('mentors') }}"   class="{{ 'active' if request.endpoint == 'mentors' else '' }}">Mentors</a>
         <span id="indicator" aria-hidden="true"></span>
       </div>
       <div class="nav-action">

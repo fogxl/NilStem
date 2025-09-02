@@ -1,5 +1,201 @@
 {% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
 {% block content %}
-  <h1>About</h1>
-  <p>Some info about this site.</p>
+  <div class="about-sec1">
+    <h1>About</h1>
+    <h3>What is NIL-STEM?</h3>
+    <p>NIL-STEM is a virtual, non-monetary program designed to help high school students, especially those in rural areas, explore STEM programs offered by top universities across Canada and discover future opportunities in science, technology, and engineering fields.</p>
+  </div>
+  <section class="about-sec2 bubble-bg">
+    <div class="about-sec2__content container container--pall">
+      <h2>Goals of NIL-STEM</h2>
+      <p class="about-subtitle">Provide students with opportunities to:</p>
+
+      <div class="goals-grid">
+        <article class="goals-item">
+          <span class="goal-icon" aria-hidden="true">
+            <i class="fas fa-graduation-cap"></i>
+          </span>
+          <p>Broaden awareness of diverse pursuable fields in post-secondary</p>
+        </article>
+
+        <article class="goals-item">
+          <span class="goal-icon" aria-hidden="true">
+            <i class="fas fa-lightbulb"></i>
+          </span>
+          <p>Help inspire interest in post-secondary studies</p>
+        </article>
+
+        <article class="goals-item">
+          <span class="goal-icon" aria-hidden="true">
+            <i class="fas fa-project-diagram"></i>
+          </span>
+          <p>Network and learn from successful professionals in the STEM fields</p>
+        </article>
+
+        <article class="goals-item">
+          <span class="goal-icon" aria-hidden="true">
+            <i class="fas fa-university"></i>
+          </span>
+          <p>Learn about academic programs and university life directly from students pursuing studies</p>
+        </article>
+      </div>
+    </div>  
+  </section>
+
+  <div class="meet-the-team">
+    <h2>Meet the Team</h2>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/deborah.jpg') }}" alt="Deborah Yun">
+        </div>
+        <div class="card-info">
+          <h3>Deborah Yun</h3>
+          <p>Founder / President</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>She/Her<br>Honors Physiology</p>
+            <ul>
+              <li>I love nature</li>
+              <li>I absolutely despise seafood despite being Korean…</li>
+              <li>NIL-STEM was formed when I was in high school!!</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h3>Finance</h3>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/abby.png') }}" alt="Abby Gagelonia">
+        </div>
+        <div class="card-info">
+          <h3>Abby Gagelonia</h3>
+          <p>VP Finance</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>She/Her<br>Mechanical Engineering</p>
+            <ul>
+              <li>I helped send a satellite to space!</li>
+              <li>One time i ate 50 pieces of sashimi in one sitting.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/lera.jpg') }}" alt="Lera Igosheva">
+        </div>
+        <div class="card-info">
+          <h3>Lera Igosheva</h3>
+          <p>Director Finance</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>She/Her<br>Economics and Law</p>
+            <ul>
+              <li>I love to whistle!</li>
+              <li>BIG hiker.</li>
+              <li>The only non-STEM executive!</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h3>Events</h3>
+
+    <div class="team-grid">
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/haruka.jpg') }}" alt="Haruka Mitsueda">
+        </div>
+        <div class="card-info">
+          <h3>Haruka Mitsueda</h3>
+          <p>VP Events</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>She/Her<br>Nursing</p>
+            <ul>
+              <li>I like to pay too much money for clothes</li>
+              <li>I’m originally from Vancouver</li>
+              <li>I'm a big Canucks fan (don’t hurt me)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/shrieya.jpg') }}" alt="Shrieya Praveen">
+        </div>
+        <div class="card-info">
+          <h3>Shrieya Praveen</h3>
+          <p>Director Events</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>She/Her<br>Honours Physiology</p>
+            <ul>
+              <li>I’m from Chicago (not o’block)</li>
+              <li>I’ve moved 11 times and have lived in 3 countries!!</li>
+              <li>I’ve been a dancer (indian classical) since I was 5</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/evan.jpg') }}" alt="Evan Yin">
+        </div>
+        <div class="card-info">
+          <h3>Evan Yin</h3>
+          <p>Director Events</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>He/Him<br>Honours Physiology</p>
+            <ul>
+              <li>My record for Pokémon names recited from memory is 1021/1025</li>
+              <li>Once I was so tired from painting I drank out of my paintbrush washing jar</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card">
+        <div class="card-media">
+          <img src="{{ url_for('static', filename='images/team/hayden.png') }}" alt="Hayden Gauley">
+        </div>
+        <div class="card-info">
+          <h3>Hayden Gauley</h3>
+          <p>Director Events</p>
+        </div>
+        <div class="card-overlay">
+          <div class="overlay-content">
+            <p>He/Him<br>Honours Neuroscience</p>
+            <ul>
+              <li>I was born in California.</li>
+              <li>I have been to the hospital 7 times due to hockey injuries (thank god for universal healthcare)</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+      
+  </div>  
 {% endblock %}
