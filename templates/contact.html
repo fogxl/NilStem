@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="contact-page">
+
+  <!-- Intro / Hero -->
+  <section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>
+      Have questions about NIL-STEM events, scholarships, or partnerships?
+      We’d love to hear from you. Reach out by email or connect with us on
+      social media and stay up to date with our latest opportunities in STEM.
+    </p>
+  </section>
+
+  <!-- Main cards -->
+  <section class="contact-grid">
+
+    <!-- Email / Direct contact -->
+    <article class="contact-card contact-card--primary">
+      <h2>Get in touch</h2>
+      <p>
+        For general inquiries, scholarship questions, or partnership ideas,
+        send us an email and a member of our team will get back to you.
+      </p>
+
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <span class="label">General inquiries</span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-graduation-cap"></i>
+        <div>
+          <span class="label">Scholarship questions</span>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <i class="fas fa-handshake"></i>
+        <div>
+          <span class="label">Partnerships</span>
+        </div>
+      </div>
+      <a href="mailto:info@nilstem.ca">nilstem22@gmail.com</a>
+    </article>
+
+    <!-- Socials -->
+    <article class="contact-card contact-card--social">
+      <h2>Connect with us</h2>
+      <p>Follow NIL-STEM on social media for updates, deadlines, and event highlights.</p>
+
+      <ul class="social-list">
+        <li>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+            <span>@nilstem</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+            <i class="fab fa-facebook-f"></i>
+            <span>NIL-STEM</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin-in"></i>
+            <span>NIL-STEM</span>
+          </a>
+        </li>
+      </ul>
+    </article>
+
+    <!-- Decorative / “Stay connected” graphic block -->
+    <article class="contact-card contact-card--graphic">
+      <div class="graphic-inner">
+        <h3>Stay in the loop</h3>
+        <p>
+          Save our email, follow our socials, and share NIL-STEM with friends
+          who might be looking for pathways into STEM.
+        </p>
+        <div class="dot-row">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+</div>
+{% endblock %}

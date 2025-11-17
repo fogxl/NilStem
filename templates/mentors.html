@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mentors.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
+{% block content %}
+<div class="mentors-gradient-bg">
+  <h1>Mentors</h1>
+  <h2>2025-2026 Mentors</h2>
+    <div class="mentors-container">
+    </div>
+  <h2>2024-2025 Mentors</h2>
+    <div class="mentors-container">
+    </div>
+</div>
+  {% endblock %}

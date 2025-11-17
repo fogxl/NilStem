@@ -1,0 +1,181 @@
+/* EVENTS PAGE – cute, student-friendly, soft + clean */
+
+@keyframes floatAroundA {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(24px, -16px); }
+  50%  { transform: translate(0, -28px); }
+  75%  { transform: translate(-20px, -8px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floatAroundB {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-18px, 20px); }
+  50%  { transform: translate(10px, 30px); }
+  75%  { transform: translate(26px, 6px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes underlineSweep {
+  0%   { transform: scaleX(0); opacity: 0; }
+  30%  { transform: scaleX(1); opacity: 1; }
+  70%  { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0); opacity: 0; }
+}
+
+@keyframes sparklePulse {
+  0%   { transform: translate(-6px, 0) scale(0.6); opacity: 0; }
+  25%  { transform: translate(0, -4px) scale(0.9); opacity: 1; }
+  50%  { transform: translate(6px, 0) scale(1); opacity: 1; }
+  100% { transform: translate(14px, 4px) scale(0.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-gradient-bg::before,
+  .events-gradient-bg::after {
+    animation: none;
+  }
+  .events-gradient-bg h1::before,
+  .events-gradient-bg h1::after,
+  .events-gradient-bg h2::before,
+  .events-gradient-bg h2::after {
+    animation: none;
+  }
+}
+
+/* Main wrapper – sits on top of the global gradient */
+.events-gradient-bg {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(96px, 14vh, 140px) 8vw clamp(72px, 10vh, 120px);
+  background: transparent; /* lets your continuous gradient show through */
+  color: #132042;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.events-gradient-bg p {
+  max-width: 720px;
+  margin: 10px auto 32px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Floating background bubbles for events page */
+.events-gradient-bg::before,
+.events-gradient-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  transform-origin: center;
+}
+
+.events-gradient-bg::before {
+  width: 220px;
+  height: 220px;
+  top: -60px;
+  left: 5%;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 18px 30px rgba(13, 38, 76, 0.2);
+  animation: floatAroundA 22s ease-in-out infinite alternate;
+}
+
+.events-gradient-bg::after {
+  width: 260px;
+  height: 260px;
+  bottom: -120px;
+  right: 0;
+  background: rgba(48, 91, 179, 0.9);
+  box-shadow: 0 22px 36px rgba(13, 38, 76, 0.3);
+  animation: floatAroundB 28s ease-in-out infinite alternate;
+}
+
+/* Keep content above bubbles */
+.events-gradient-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading styles + flourishes (matching About page energy) */
+.events-gradient-bg h1,
+.events-gradient-bg h2 {
+  position: relative;
+  display: inline-block;
+  color: #132042;
+}
+
+.events-gradient-bg h1 {
+  font-size: clamp(32px, 5.5vw, 46px);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.events-gradient-bg h2 {
+  font-size: clamp(24px, 3.8vw, 32px);
+  margin: 48px 0 12px;
+  font-style: italic;
+}
+
+.events-gradient-bg h1::after,
+.events-gradient-bg h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #ffffff 0%, #7096D1 35%, #305bb3 100%);
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: underlineSweep 4.5s ease-in-out infinite;
+}
+
+.events-gradient-bg h1::before,
+.events-gradient-bg h2::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  animation: sparklePulse 4.5s ease-in-out infinite;
+}
+
+/* Calendar container */
+.calendar-container {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.calendar-container iframe {
+  width: 100%;
+  max-width: 900px;
+  height: 600px;
+  border: none; /* overrides inline border */
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 36px rgba(13, 38, 76, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 768px) {
+  .events-gradient-bg {
+    padding: 96px 6vw 80px;
+  }
+
+  .calendar-container iframe {
+    height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-container iframe {
+    height: 420px;
+  }
+}

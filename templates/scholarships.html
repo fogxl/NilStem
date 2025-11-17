@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/scholarships.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
+{% block content %}
+<div class="scholarship-info">
+  <h1>Scholarship</h1>
+  <p>The NIL-STEM Scholarship was created to support and empower students from underrepresented and rural communities who aspire to build futures in science, technology, engineering, and mathematics. This award helps reduce financial barriers so students can pursue post-secondary education and meaningful careers in STEM.</p>
+  <p>One $1,000 scholarship is awarded to a student who demonstrates strong academic commitment and a genuine passion for STEM. Beyond financial support, this scholarship reflects NIL-STEM’s mission to expand equitable access to education, uplift diverse voices, and foster the next generation of innovative leaders.</p>
+  <p>Key Dates for the scholarship
+    <ul>
+        <li>Application open date : To be released</li>
+        <li>Application close date : To be released</li>
+    </ul>
+  </p>
+    <p>Link to the google form application: CLOSED FOR NOW UNTIL FURTHER NOTICE</p> 
+</div>
+<div class="scholarship-eligibility">
+    <h2>Eligibility Criteria</h2>
+    <p>The NIL-STEM Scholarship supports students who face geographic or resource-based barriers in accessing STEM education. Applicants must be pursuing, or planning to pursue, studies in science, technology, engineering, or mathematics at an accredited Canadian university.</p>
+    <p>Priority consideration is given to:
+        <ul>
+            <li>Grade 11 and 12 students from rural high schools who plan to apply to a Canadian university for a STEM degree.</li>
+            <li>Undergraduate students from rural communities who are currently enrolled in a STEM program at an accredited Canadian university.</li>
+        </ul>
+    </p>
+    <p>Students from non-rural backgrounds are also welcome to apply.</p>
+    <p>All applicants must also meet the following requirements:
+        <ul>
+            <li>Have attended a NIL-STEM event and submitted the official confirmation of attendance form.</li>
+            <li>Be a current Grade 11 or 12 student or a post-secondary student up to fourth year at an accredited Canadian university.</li>
+            <li>Demonstrate a clear interest in pursuing STEM fields, whether through coursework, extracurricular involvement, or personal initiatives.</li>
+        </ul>
+    </p>
+</div>
+<div class="scholarship-head-engineering">
+  <div class="partner-text">
+    <h2>Our partner</h2>
+    <h3>Headwall Engineering</h3>
+    <p>
+      The NIL-STEM Scholarship is made possible through a partnership with
+      Headwall Engineering, a local engineering firm based in Jasper, Alberta,
+      committed to supporting rural youth in STEM. Their generous support helps
+      expand opportunities for students who may face geographic or resource-based
+      barriers.
+    </p>
+    <a class="partner-cta" href="https://headwalleng.ca/" target="_blank" rel="noopener">
+      Learn More
+    </a>
+  </div>
+
+  <div class="partner-logo">
+    <img
+      src="{{ url_for('static', filename='images/head_engineering.webp') }}"
+      alt="Headwall Engineering logo"
+    >
+  </div>
+</div>
+  {% endblock %}

@@ -35,6 +35,13 @@ def mentors():
     except TemplateNotFound:
         return '<h1>Mentors</h1><p>Create templates/mentors.html to customize.</p>'
     
+@app.route('/scholarships')
+def scholarships():
+    try:
+        return render_template('scholarships.html', title='Scholarships')
+    except TemplateNotFound:
+        return '<h1>Scholarships</h1><p>Create templates/scholarships.html to customize.</p>'    
+    
 @app.route('/contact')
 def contact():
     try:

@@ -19,10 +19,11 @@
         <a href="{{ url_for('about')   }}"   class="{{ 'active' if request.endpoint == 'about'   else '' }}">About</a>
         <a href="{{ url_for('events')  }}"   class="{{ 'active' if request.endpoint == 'events'  else '' }}">Events</a>
         <a href="{{ url_for('mentors') }}"   class="{{ 'active' if request.endpoint == 'mentors' else '' }}">Mentors</a>
+        <a href="{{ url_for('scholarships') }}"   class="{{ 'active' if request.endpoint == 'scholarships' else '' }}">Scholarships</a>
         <span id="indicator" aria-hidden="true"></span>
       </div>
       <div class="nav-action">
-        <a href="#contact" class="contact-btn">Contact Us</a>
+        <a href="{{ url_for('contact')   }}"  class="contact-btn">Contact Us</a>
       </div>
     </nav>
   </header>

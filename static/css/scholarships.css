@@ -1,0 +1,310 @@
+/* SCHOLARSHIPS PAGE – soft, clean, student-friendly with bubbles */
+
+@keyframes floatAroundA {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(24px, -16px); }
+  50%  { transform: translate(0, -28px); }
+  75%  { transform: translate(-20px, -8px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floatAroundB {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-18px, 20px); }
+  50%  { transform: translate(10px, 30px); }
+  75%  { transform: translate(26px, 6px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes underlineSweep {
+  0%   { transform: scaleX(0); opacity: 0; }
+  30%  { transform: scaleX(1); opacity: 1; }
+  70%  { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(0); opacity: 0; }
+}
+
+@keyframes sparklePulse {
+  0%   { transform: translate(-6px, 0) scale(0.6); opacity: 0; }
+  25%  { transform: translate(0, -4px) scale(0.9); opacity: 1; }
+  50%  { transform: translate(6px, 0) scale(1); opacity: 1; }
+  100% { transform: translate(14px, 4px) scale(0.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scholarship-info::before,
+  .scholarship-info::after,
+  .scholarship-head-engineering::before,
+  .scholarship-head-engineering::after {
+    animation: none;
+  }
+
+  .scholarship-info h1::before,
+  .scholarship-info h1::after,
+  .scholarship-eligibility h2::before,
+  .scholarship-eligibility h2::after,
+  .scholarship-head-engineering h2::before,
+  .scholarship-head-engineering h2::after {
+    animation: none;
+  }
+}
+
+/* Shared layout for sections */
+.scholarship-info,
+.scholarship-eligibility {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(80px, 12vh, 110px) 8vw 0;
+  background: transparent; /* global gradient shows through */
+  font-family: "Times New Roman", Times, serif;
+  color: #132042;
+}
+
+/* Make scholarship-info a bubble host */
+.scholarship-info {
+  position: relative;
+}
+
+/* Top bubbles behind main scholarship copy */
+.scholarship-info::before,
+.scholarship-info::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  transform-origin: center;
+}
+
+.scholarship-info::before {
+  width: 200px;
+  height: 200px;
+  top: -70px;
+  left: -40px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 18px 30px rgba(13, 38, 76, 0.18);
+  animation: floatAroundA 24s ease-in-out infinite alternate;
+}
+
+.scholarship-info::after {
+  width: 180px;
+  height: 180px;
+  bottom: -80px;
+  right: 2%;
+  background: rgba(48, 91, 179, 0.85);
+  box-shadow: 0 18px 32px rgba(13, 38, 76, 0.25);
+  animation: floatAroundB 28s ease-in-out infinite alternate;
+}
+
+/* Keep text above bubbles */
+.scholarship-info > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Eligibility section (no bubbles here so it stays calmer) */
+.scholarship-eligibility {
+  padding-top: clamp(48px, 8vh, 72px);
+}
+
+.scholarship-info h1 {
+  font-size: clamp(32px, 5.5vw, 46px);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+  position: relative;
+  display: inline-block;
+}
+
+.scholarship-eligibility h2,
+.scholarship-head-engineering h2 {
+  font-size: clamp(26px, 4.3vw, 34px);
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.scholarship-head-engineering h3 {
+  font-size: 20px;
+  margin: 4px 0 16px;
+  font-style: italic;
+}
+
+/* Heading flourishes */
+.scholarship-info h1::after,
+.scholarship-eligibility h2::after,
+.scholarship-head-engineering h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #ffffff 0%, #7096D1 35%, #305bb3 100%);
+  border-radius: 999px;
+  transform-origin: left center;
+  animation: underlineSweep 4.5s ease-in-out infinite;
+}
+
+.scholarship-info h1::before,
+.scholarship-eligibility h2::before,
+.scholarship-head-engineering h2::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+  animation: sparklePulse 4.5s ease-in-out infinite;
+}
+
+/* Text styles */
+.scholarship-info p,
+.scholarship-eligibility p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 14px 0;
+}
+
+.scholarship-eligibility ul {
+  margin: 8px 0 16px 20px;
+  padding-left: 0;
+}
+
+.scholarship-eligibility li {
+  margin: 4px 0;
+}
+
+/* ========= PARTNER SECTION ========= */
+
+/* Partner card overall */
+.scholarship-head-engineering {
+  max-width: 1100px;
+  margin: clamp(72px, 10vh, 96px) auto clamp(96px, 12vh, 120px);
+  padding: 0 8vw;
+  font-family: "Times New Roman", Times, serif;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: stretch;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  box-shadow: 0 18px 36px rgba(13, 38, 76, 0.14);
+}
+
+/* Bubbles behind the partner card */
+.scholarship-head-engineering::before,
+.scholarship-head-engineering::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  transform-origin: center;
+}
+
+.scholarship-head-engineering::before {
+  width: 220px;
+  height: 220px;
+  top: -80px;
+  right: -60px;
+  background: rgba(112, 150, 209, 0.48);
+  box-shadow: 0 18px 30px rgba(13, 38, 76, 0.22);
+  animation: floatAroundB 26s ease-in-out infinite alternate;
+}
+
+.scholarship-head-engineering::after {
+  width: 150px;
+  height: 150px;
+  bottom: -60px;
+  left: -40px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 26px rgba(13, 38, 76, 0.16);
+  animation: floatAroundA 22s ease-in-out infinite alternate;
+}
+
+/* Make actual content sit above bubbles */
+.scholarship-head-engineering > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Left column: text block */
+.partner-text {
+  padding: clamp(40px, 6vh, 56px) clamp(40px, 6vw, 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.partner-text p {
+  margin: 12px 0 24px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* "Learn more" button */
+.partner-cta {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 10px 24px;
+  border-radius: 6px;
+  background: #ffc98f;
+  color: #132042;
+  font-size: 14px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-cta:hover {
+  background: #ffb76a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(255, 165, 85, 0.45);
+}
+
+/* Right column: logo area */
+.partner-logo {
+  position: relative;
+  background: #f5f5fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 32px;
+}
+
+/* Logo sizing: keep it neat, not blown up */
+.partner-logo img {
+  max-width: 260px;      /* adjust up or down if you want it bigger/smaller */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px rgba(13, 38, 76, 0.18));
+}
+
+/* For very wide screens */
+@media (min-width: 1200px) {
+  .partner-logo {
+    padding-right: 48px;
+  }
+}
+
+/* Stack on mobile */
+@media (max-width: 800px) {
+  .scholarship-head-engineering {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-logo {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+
+  .partner-logo img {
+    max-width: 220px;
+  }
+}
