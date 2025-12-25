@@ -51,7 +51,7 @@
   padding: clamp(96px, 14vh, 140px) 8vw clamp(72px, 10vh, 120px);
   background: transparent; /* lets your continuous gradient show through */
   color: #132042;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Nunito Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   text-align: center;
 }
 

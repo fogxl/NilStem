@@ -55,7 +55,7 @@
   margin: 0 auto;
   padding: clamp(80px, 12vh, 110px) 8vw 0;
   background: transparent; /* global gradient shows through */
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Nunito Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: #132042;
 }
 

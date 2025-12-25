@@ -1,0 +1,247 @@
+:root{
+  --primary: hsl(222, 80%, 50%);
+  --primary-light: hsl(222, 50%, 95%);
+  --secondary: hsl(350, 80%, 50%);
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  background: var(--primary-light);
+  font-family: "Nunito Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #333;
+}
+
+.content{
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  padding: 2rem 1rem 3rem;
+}
+
+.heading{
+  width: 100%;
+  margin: 0 0 0.75rem;
+  font-weight: 900;
+  font-size: 1.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1ch;
+  line-height: 1;
+  padding-bottom: 0.5rem;
+  position: relative;
+}
+
+.heading::after{
+  display: block;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, hsl(202, 80%, 50%), var(--primary));
+  bottom: 0;
+}
+
+.description{
+  width: 100%;
+  margin: 0 0 2rem;
+  font-weight: 300;
+}
+
+.card{
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  width: calc(33.333% - 2rem);
+  min-width: calc(33.333% - 2rem);
+  height: 400px;
+  perspective: 1000px;
+  margin: 1rem;
+  position: relative;
+  display: block;
+}
+
+@media (max-width: 800px){
+  .card{
+    width: calc(50% - 2rem);
+    min-width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 500px){
+  .card{
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms ease-in-out;
+  border-radius: 10px;
+}
+
+.card:hover .card-inner{
+  transform: rotateY(180deg);
+}
+
+.card:nth-of-type(even):hover .card-inner{
+  transform: rotateY(-180deg);
+}
+
+.front,
+.back{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.front{
+  background-position: center;
+  background-size: cover;
+  padding: 2rem;
+  color: #fff;
+  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.front::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(202, 80%, 50%), var(--primary));
+  opacity: 0.28;
+  z-index: 0;
+}
+
+.front-text{
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.front-sub{
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1rem;
+  opacity: 0.95;
+  margin-top: 0.4rem;
+}
+
+.back{
+  background: #fff;
+  transform: rotateY(180deg);
+  padding: 1.25rem;
+}
+
+.card:nth-of-type(even) .back{
+  transform: rotateY(-180deg);
+}
+
+.back-inner{
+  width: 100%;
+  height: 100%;
+  transform: translateZ(1px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.name{
+  margin: 0.25rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.title{
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.75;
+  text-align: center;
+}
+
+.back-scroll{
+  margin-top: 0.5rem;
+  width: 100%;
+
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.03);
+  line-height: 1.45;
+}
+
+.back-scroll p{
+  margin: 0 0 0.75rem;
+}
+
+.back-scroll p:last-child{
+  margin-bottom: 0;
+}
+
+/* nicer scrollbars (optional) */
+.back-scroll::-webkit-scrollbar{
+  width: 10px;
+}
+.back-scroll::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.back-scroll::-webkit-scrollbar-track{
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+
+.button{
+  margin-top: 0.75rem;
+  cursor: pointer;
+  font-weight: 800;
+  color: #fff;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, hsl(202, 80%, 50%), var(--primary));
+  transition: transform 200ms ease, filter 200ms ease;
+}
+
+.button:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.button:active{
+  transform: translateY(0px);
+  filter: brightness(0.98);
+}
+
+.button.secondary{
+  background: linear-gradient(135deg, hsl(330, 80%, 50%), var(--secondary));
+}
