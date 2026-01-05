@@ -23,13 +23,6 @@
   100% { transform: scaleX(0); opacity: 0; }
 }
 
-@keyframes sparklePulse {
-  0%   { transform: translate(-6px, 0) scale(0.6); opacity: 0; }
-  25%  { transform: translate(0, -4px) scale(0.9); opacity: 1; }
-  50%  { transform: translate(6px, 0) scale(1); opacity: 1; }
-  100% { transform: translate(14px, 4px) scale(0.6); opacity: 0; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .contact-page::before,
   .contact-page::after {
@@ -124,20 +117,6 @@
   border-radius: 999px;
   transform-origin: left center;
   animation: underlineSweep 4.5s ease-in-out infinite;
-}
-
-.contact-hero h1::before,
-.contact-card h2::before {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
-  animation: sparklePulse 4.5s ease-in-out infinite;
 }
 
 /* Grid of cards */

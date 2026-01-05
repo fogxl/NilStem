@@ -1,90 +1,113 @@
 {% extends "base.html" %}
+
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/mentors.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 {% endblock %}
+
 {% block content %}
-<div class="content">
-  <h1 class="heading">2025-2026 Mentors</h1>
-  <p class="description"></p>
+<div class="mentors-page">
+  <div class="content">
+    <h1 class="page-title">Mentors</h1>
+    <h2 class="section-title">2025–2026 Mentors</h2>
+    <p class="description"></p>
 
-  <a href="#!" class="card">
-    <div class="card-inner">
-      <div class="front" style="background-image: url('https://source.unsplash.com/600x800/?person,portrait,1');">
-        <p class="front-text">Angelica Aguilar<br><span class="front-sub">Nanotechnology/Materials/Chemical Engineering</span></p>
-      </div>
+    <a href="#!" class="card">
+      <div class="card-inner">
+        <div class="front" style="background-image: url('https://source.unsplash.com/600x800/?person,portrait,1');">
+          <div class="front-content">
+            <img class="mentor-headshot" src="{{ url_for('static', filename='images/mentors/AngelicaAguilar.avif') }}" alt="Headshot of Angelica Aguilar">
 
-      <div class="back">
-        <div class="back-inner">
-          <h3 class="name">Angelica Aguilar</h3>
-          <h4 class="title">Nanotechnology/Materials/Chemical Engineering</h4>
-
-          <div class="back-scroll">
-            <p>
-              Angelica is a first-year Ph.D. student in Chemical Engineering and the Experiential Learning and Student Engagement Coordinator at the Chemical and Materials Engineering Department of the University of Alberta. Driven by her love for chemistry and research, Angelica has 10+ years of lab experience in different areas: inorganic and metalorganic chemistry, electrochemistry, materials synthesis, and a splash of microbiology. Aside from building and sharing her career in STEM, Angelica enjoys a good cup of coffee, the outdoors, her weekly 5k run, and spend time with her loved ones.
+            <p class="front-text">
+              Angelica Aguilar<br>
+              <span class="front-sub">Nanotechnology/Materials/Chemical Engineering</span>
             </p>
           </div>
+        </div>
 
+        <div class="back">
+          <div class="back-inner">
+            <h3 class="name">Angelica Aguilar</h3>
+            <h4 class="title">Nanotechnology/Materials/Chemical Engineering</h4>
+
+            <div class="back-scroll">
+              <p>
+                Angelica is a first-year Ph.D. student in Chemical Engineering and the Experiential Learning and Student Engagement Coordinator at the Chemical and Materials Engineering Department of the University of Alberta. Driven by her love for chemistry and research, Angelica has 10+ years of lab experience in different areas: inorganic and metalorganic chemistry, electrochemistry, materials synthesis, and a splash of microbiology. Aside from building and sharing her career in STEM, Angelica enjoys a good cup of coffee, the outdoors, her weekly 5k run, and spending time with her loved ones.
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="#!" class="card">
-    <div class="card-inner">
-      <div class="front" style="background-image: url('https://source.unsplash.com/600x800/?person,portrait,2');">
-        <p class="front-text">Caitlyn Shum<br><span class="front-sub">Mechanical Engineering</span></p>
-      </div>
+    <a href="#!" class="card">
+      <div class="card-inner">
+        <div class="front" style="background-image: url('https://source.unsplash.com/600x800/?person,portrait,2');">
+          <div class = "front-content">
+            <img class="mentor-headshot" src="{{ url_for('static', filename='images/mentors/CaitlynShum.avif') }}" alt="Headshot of Caitlyn Shum">
 
-      <div class="back">
-        <div class="back-inner">
-          <h3 class="name">Caitlyn Shum</h3>
-          <h4 class="title">Mechanical Engineering</h4>
-
-          <div class="back-scroll">
-            <p>
-              Caitlyn Shum discovered her interest in sustainable building technologies during her undergraduate studies in Mechanical Engineering at the University of Alberta. That passion led her to pursue a Masters of Science. Her research regarding climate change resiliency in building explored residential and commercial building retrofit strategies for wildfire smoke mitigation and energy savings. Today, Caitlyn applies her expertise as a Mechanical Buildings Consultant at CIMA+ where she designs mechanical systems for commercial and institutional buildings.
+            <p class="front-text">
+              Caitlyn Shum<br>
+              <span class="front-sub">Mechanical Engineering</span>
             </p>
-            <p>
-              Here are more fun facts about Caitlyn!
-            </p>
-            <p>
+          </div>
+        </div>
+
+        <div class="back">
+          <div class="back-inner">
+            <h3 class="name">Caitlyn Shum</h3>
+            <h4 class="title">Mechanical Engineering</h4>
+
+            <div class="back-scroll">
+              <p>
+                Caitlyn Shum discovered her interest in sustainable building technologies during her undergraduate studies in Mechanical Engineering at the University of Alberta. That passion led her to pursue a Masters of Science. Her research regarding climate change resiliency in building explored residential and commercial building retrofit strategies for wildfire smoke mitigation and energy savings. Today, Caitlyn applies her expertise as a Mechanical Buildings Consultant at CIMA+ where she designs mechanical systems for commercial and institutional buildings.
+              </p>
+
+              <p>Here are more fun facts about Caitlyn!</p>
+
               <ul>
                 <li>BSc and MSc Mechanical Engineering</li>
-                <li>Outside of engineering work, she holds an ARCT Performers and Teachers certification with the Royal Conservatory of Music in Speech Arts and Drama. She still teaching as of this year and have been since high school.</li>
-                <li>During high school, Caityln was a summer research student with the Heritage Youth Research Summer (HYRS) program hosted out of the University of Alberta.</li>
+                <li>ARCT Performers and Teachers certification (Royal Conservatory of Music) in Speech Arts and Drama</li>
+                <li>Summer research student with HYRS (University of Alberta) during high school</li>
               </ul>
-            </p>
-          </div>
+            </div>
 
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  <a href="#!" class="card">
-    <div class="card-inner">
-      <div class="front" style="background-image: url('https://source.unsplash.com/600x800/?person,portrait,3');">
-        <p class="front-text">Craig Hartmetz<br><span class="front-sub">Structural Engineering</span></p>
-      </div>
+    <a href="#!" class="card">
+      <div class="card-inner">
+        <div class="front" style="background-image: url('https://source.unsplash.com/600x800/?person,portrait,3');">
+          <div class="front-content">
+            <img class="mentor-headshot" src="{{ url_for('static', filename='images/mentors/CraigHartmetz.avif') }}" alt="Headshot of Craig Hartmetz">
 
-      <div class="back">
-        <div class="back-inner">
-          <h3 class="name">Craig Hartmetz</h3>
-          <h4 class="title">Structural Engineering</h4>
-
-          <div class="back-scroll">
-            <p>
-              Craig is a passionate structural engineer with a focus on good detailing. He finds working in and serving the small community of Jasper, Alberta to be very rewarding. Craig is a professional engineer, licensed in the provinces of Alberta, British Columbia, and Saskatchewan. He is also an Avalanche Professional with the Canadian Avalanche Association and an Apprentice Ski Guide with the Association of Canadian Mountain Guides.
+            <p class="front-text">
+              Craig Hartmetz<br>
+              <span class="front-sub">Structural Engineering</span>
             </p>
           </div>
+        </div>
+        
+        <div class="back">
+          <div class="back-inner">
+            <h3 class="name">Craig Hartmetz</h3>
+            <h4 class="title">Structural Engineering</h4>
 
+            <div class="back-scroll">
+              <p>
+                Craig is a passionate structural engineer with a focus on good detailing. He finds working in and serving the small community of Jasper, Alberta to be very rewarding. Craig is a professional engineer, licensed in the provinces of Alberta, British Columbia, and Saskatchewan. He is also an Avalanche Professional with the Canadian Avalanche Association and an Apprentice Ski Guide with the Association of Canadian Mountain Guides.
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
-    </div>
-  </a>
+    </a>
 
-  
+  </div>
 </div>
-  {% endblock %}
+{% endblock %}
